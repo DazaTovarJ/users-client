@@ -1,12 +1,16 @@
 import React from "react";
 import {Container} from "react-bootstrap";
 import {Outlet} from "react-router-dom";
+import Toolbar from "../components/Toolbar";
 
 function Base() {
   return (
-    <Container>
-      <Outlet />
-    </Container>
+    <>
+      <Toolbar />
+      <Container>
+        <Outlet />
+      </Container>
+    </>
   );
 }
 
