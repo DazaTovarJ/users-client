@@ -1,6 +1,7 @@
 import React from "react";
 import {Formik} from "formik";
 import {Button, Form} from "react-bootstrap";
+import {createUser} from "../api/users.api";
 
 const initialForm = {
   nombre: "",
@@ -9,13 +10,23 @@ const initialForm = {
 };
 
 function UserForm() {
+  const sendData = async (values) => {
+    try {
+      const response = await createUser(values);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <h2>New User</h2>
       <Formik
         initialValues={initialForm}
-        onSubmit={(values) => {
-          console.log(values);
+        onSubmit={(values, actions) => {
+          sendData(values);
+          actions.resetForm();
         }}
       >
         {({values, handleChange, handleSubmit}) => (
