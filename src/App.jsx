@@ -3,7 +3,7 @@ import {Route, Routes} from "react-router-dom";
 
 import Users from "./pages/Users";
 import NotFound from "./pages/NotFound";
-import Form from "./pages/Form";
+import UserForm from "./pages/UserForm";
 import Base from "./pages/Base";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Base />}>
         <Route index element={<Users />} />
-        <Route path="/new" element={<Form />} />
+        <Route path="/new" element={<UserForm />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
